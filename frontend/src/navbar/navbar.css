@@ -1,0 +1,125 @@
+.pkimage {
+  width: 120px;
+  height: 80px;
+}
+
+/*efectos mobile*/
+.nav-menu-wrapper {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  background-color: white;
+  z-index: 100;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.nav-menu-wrapper.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+ul.ulclass {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.menu-nav-link {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px 20px;
+  transition: color 0.2s ease;
+  display: block;
+}
+.menu-nav-link:hover,
+.menu-nav-link.active {
+  color: #ffcc00;
+}
+.MuiPaper-root {
+  height: 60px;
+}
+.nav-container {
+  display: none;
+}
+/*efectos pc*/
+@media (min-width: 644px) {
+  .app-bar-container {
+    display: none;
+  }
+
+  .pkimage {
+    height: 400px;
+    width: 200px;
+  }
+  .nav-container {
+    display: flex;
+  }
+  li.nav-link a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+  }
+
+  li.nav-link a:hover {
+    color: blue;
+  }
+  ul.ulclass {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+  }
+  li.nav-link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: blue;
+    transition: transform 0.3s ease-out, background-color 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    color: rgb(4, 4, 101);
+  }
+}
