@@ -1,0 +1,577 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: trabajo final
+meta:
+  id: wrk_fd2d6bc4c87c484cbdc539010a0e6d1d
+  created: 1771897627560
+  modified: 1771897842018
+  description: ""
+collection:
+  - url: http://localhost:3000/api/saludo
+    name: api saludo
+    meta:
+      id: req_a7ad9bb9acf744ca8ebc8c5e14d3bd57
+      created: 1771897627619
+      modified: 1771897822947
+      isPrivate: false
+      description: ""
+      sortKey: -1771897627619
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/login/register
+    name: register
+    meta:
+      id: req_d8617a9419b640dd9e9492b2706b9c73
+      created: 1771897849015
+      modified: 1771902120045
+      isPrivate: false
+      description: ""
+      sortKey: -1771897849015
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "usuario",
+          "email": "usuario@ejemplo.com",
+          "password": "passwordSeguro123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/login
+    name: Login
+    meta:
+      id: req_7afe0461f82e4995a69e9b273aa9db3c
+      created: 1771898191241
+      modified: 1771899515013
+      isPrivate: false
+      description: ""
+      sortKey: -1771898191241
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+           "email": "admin2@admin.com",
+          "password": "123456789"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUiLCJ1c2VySWQiOiI1Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NzE4OTg5MTMsImV4cCI6MTc3MTk4NTMxMywiaXNzIjoiQWJlbCBNIEdhcmNpYSJ9.2RdxXO3I11CKRlwtMiAiq7WRIYxHOKNX2_2U-A4XPjk
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas"
+    name: acceso mascotas
+    meta:
+      id: req_b2f6e2b5c5d14953b07af5d1510ed5a0
+      created: 1771898319573
+      modified: 1771899577006
+      isPrivate: false
+      description: ""
+      sortKey: -1771898319573
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/usuarios"
+    name: usuarios view
+    meta:
+      id: req_66ba0711b16147f4b5b34003d090a5f3
+      created: 1771899610023
+      modified: 1771899718516
+      isPrivate: false
+      description: ""
+      sortKey: -1771899610023
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/usuarios/5"
+    name: get usuario by id
+    meta:
+      id: req_11ddd21555bb40598822111afdd4d42c
+      created: 1771899724114
+      modified: 1771899873080
+      isPrivate: false
+      description: ""
+      sortKey: -1771899724114
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/usuarios"
+    name: crear usuario
+    meta:
+      id: req_a61ad836464944d297c762b54e06f320
+      created: 1771899953099
+      modified: 1771900256426
+      isPrivate: false
+      description: ""
+      sortKey: -1771899953099
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "coder_vibe",
+          "email": "dev@ejemplo.com",
+          "password": "password_seguro_123",
+          "role": "admin"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/usuarios/5"
+    name: update usuario
+    meta:
+      id: req_701dc0d7224b44d795a0fbb558f0d77e
+      created: 1771900275058
+      modified: 1771900457849
+      isPrivate: false
+      description: ""
+      sortKey: -1771900275058
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "coder_vibe_updated",
+          "email": "nuevo_email@ejemplo.com",
+          "password": "nueva_password_789",
+          "role": "editor"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/usuarios/5"
+    name: borrar usuario
+    meta:
+      id: req_216d608f59c54d1690e2912e9d24d071
+      created: 1771900462682
+      modified: 1771901604134
+      isPrivate: false
+      description: ""
+      sortKey: -1771900462682
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/login/register
+    name: Register veterinario(passwordSeguro123
+    meta:
+      id: req_1f200f85692d40fd91a0cdab6b366e7e
+      created: 1771901588449
+      modified: 1771902244874
+      isPrivate: false
+      description: ""
+      sortKey: -1771901588449
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "Yamila",
+          "email": "veterinario@ejemplo.com",
+          "password": "passwordSeguro123",
+        	"role": "veterinario"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: $2b$10$nZQqsjGmLARKrQEnNEg.DO3if6QCyzxtxypV/bK4IWkm6Oez5/Jfa
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/login"
+    name: Login veterinario
+    meta:
+      id: req_a1a67fb6bc9541a981f57c69fee3d34b
+      created: 1771902252252
+      modified: 1771902322225
+      isPrivate: false
+      description: ""
+      sortKey: -1771902252252
+    method: POST
+    body:
+      mimeType: application/json
+      text: |2-
+         {"email": "veterinario@ejemplo.com",
+          "password": "passwordSeguro123"
+         }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas"
+    name: ver mascotas veterinario
+    meta:
+      id: req_f7c9dbaa3d9c4846b089a7590d06b42c
+      created: 1771902326787
+      modified: 1771902528610
+      isPrivate: false
+      description: ""
+      sortKey: -1771902326787
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgiLCJ1c2VySWQiOiI4Iiwicm9sZSI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcxOTAyNDkyLCJleHAiOjE3NzE5ODg4OTIsImlzcyI6IkFiZWwgTSBHYXJjaWEifQ.XU9KrcHX66vbHBVPn-Sulceu3d4hmuu0pL6Gw2oCuLA
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas/2"
+    name: Ver mascota id
+    meta:
+      id: req_098ccdd9667d4c188120f287ce527580
+      created: 1771902570122
+      modified: 1771902687463
+      isPrivate: false
+      description: ""
+      sortKey: -1771902570122
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas"
+    name: Crear Mascota
+    meta:
+      id: req_bf45ad178b5c4894823697442b495924
+      created: 1771902693917
+      modified: 1771902811512
+      isPrivate: false
+      description: ""
+      sortKey: -1771902693917
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Firulais",
+          "race": "Golden Retriever",
+          "b_date": "2023-05-15",
+          "dueno_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas/2"
+    name: modificar mascota
+    meta:
+      id: req_fd1a0e70f1b84421ab720066ed1584f1
+      created: 1771902819581
+      modified: 1771903166066
+      isPrivate: false
+      description: ""
+      sortKey: -1771902819581
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Firulais Editado",
+          "race": "Labrador",
+          "b_date": "2023-05-15",
+          "dueno_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas/7"
+    name: modificar mascota2
+    meta:
+      id: req_1586c3c4aab14fbf99cf674308ace856
+      created: 1771903172630
+      modified: 1771903222670
+      isPrivate: false
+      description: ""
+      sortKey: -1771902756749
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Firulais Editado re editado7",
+          "race": "Labrador",
+          "b_date": "2023-05-15",
+          "dueno_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.http }}/mascotas/3"
+    name: Delete mascota
+    meta:
+      id: req_a11e12d02ccf4594be8e0a220f4abdfc
+      created: 1771903280111
+      modified: 1771903291923
+      isPrivate: false
+      description: ""
+      sortKey: -1771902788165
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.jwt }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_bc7bdcd1d71a27d8fed14f42818982c69e38ab7e
+    created: 1771897627563
+    modified: 1771897627563
+environments:
+  name: Base Environment
+  meta:
+    id: env_bc7bdcd1d71a27d8fed14f42818982c69e38ab7e
+    created: 1771897627561
+    modified: 1771902559319
+    isPrivate: false
+  data:
+    http: http://localhost:3000
+    jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgiLCJ1c2VySWQiOiI4Iiwicm9sZSI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcxOTAyNDkyLCJleHAiOjE3NzE5ODg4OTIsImlzcyI6IkFiZWwgTSBHYXJjaWEifQ.XU9KrcHX66vbHBVPn-Sulceu3d4hmuu0pL6Gw2oCuLA
