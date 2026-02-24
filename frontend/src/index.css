@@ -26,9 +26,10 @@
 
 
 body {
-background-image: url(assets/fondomejorado.jpg);
-background-size: cover;  
+background-image: url('./assets/JEMA\ VIVI\ 022-04.jpg');
+background-size: cover;
 min-height: 100vh;
 margin: 0;
+padding: 0;
 }
 

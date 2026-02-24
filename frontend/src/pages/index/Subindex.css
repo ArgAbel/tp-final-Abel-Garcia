@@ -3,20 +3,28 @@
 
   grid-template-areas:
     "header header header"
+    "emptyl textintro emptyr"
     ". video ."
     ". trasport .";
 
   grid-template-columns: 10% 80% 10%;
+  grid-template-rows: auto auto auto auto;
  /* grid-template-rows: repeat(3, 1fr);*/
   min-width: 320px;
   min-height: 320px;
   gap: 10px;
  
 }
-.contenedor-grid {
-  background-image: url(../../assets/pikachuvscharizard.jpg);
-  background-size: contain;
-}
+
+.textintro {
+  grid-area: textintro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%; 
+  overflow: hidden; 
+}                                                 
 .header {
   grid-area: header;
   display: flex;
@@ -27,6 +35,7 @@
   .contenedor-grid {
     grid-template-areas:
       "header"
+      "textintro"
       "video"
       "trasport ";
     gap: 10px;
@@ -37,8 +46,8 @@
     display: flex;
   }
   .imgh {
-    width: 280px;
-    height: 280px;
+    width: 100vw;
+    height: auto;
   }
 
   .buttontrasport {
@@ -50,14 +59,16 @@
   }
   .videointro {
     grid-area: video;
+    display : flex;
+    flex-direction: column;
   }
 } /*aca termina media query*/
 .videointro {
   grid-area: video;
   position: relative;
   width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%;
+  
+ display: flex;
 }
 .iframeres {
   position: absolute;
@@ -82,3 +93,7 @@
   align-items: center;
   font-weight: bold;
 }
+.imgh {
+    width: 100vw;
+    height: auto;
+  }
