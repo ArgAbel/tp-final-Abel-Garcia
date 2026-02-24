@@ -9,11 +9,10 @@
 
   grid-template-columns: 10% 80% 10%;
   grid-template-rows: auto auto auto auto;
- /* grid-template-rows: repeat(3, 1fr);*/
+  /* grid-template-rows: repeat(3, 1fr);*/
   min-width: 320px;
   min-height: 320px;
   gap: 10px;
- 
 }
 
 .textintro {
@@ -21,10 +20,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  width: 100%; 
-  overflow: hidden; 
-}                                                 
+
+  width: 100%;
+  overflow: hidden;
+}
 .header {
   grid-area: header;
   display: flex;
@@ -59,7 +58,7 @@
   }
   .videointro {
     grid-area: video;
-    display : flex;
+    display: flex;
     flex-direction: column;
   }
 } /*aca termina media query*/
@@ -67,8 +66,8 @@
   grid-area: video;
   position: relative;
   width: 100%;
-  
- display: flex;
+
+  display: flex;
 }
 .iframeres {
   position: absolute;
@@ -94,6 +93,6 @@
   font-weight: bold;
 }
 .imgh {
-    width: 100vw;
-    height: auto;
-  }
+  width: 100vw;
+  height: auto;
+}

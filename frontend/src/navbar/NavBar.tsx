@@ -1,97 +1,73 @@
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-
+import { AppBar, Toolbar, IconButton, Box, Container } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
 import "./navbar.css";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-
-import { useState } from "react";
-
 const navItems = [
-  { path: "Index", label: "Inicio" },
-  { path: "ListaPokes", label: "Pokemons" },
-  { path: "Favoritos", label: "Vista Favoritos" },
+  { path: "/Index", label: "Inicio" },
+  { path: "/Login", label: "Login" },
+  { path: "/Dashboard", label: "Dashboard" },
 ];
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleMenuToggle = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
 
   return (
-    <>
-      <Box className="app-bar-container" sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick={handleMenuToggle}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1 }}
-            ></Typography>
-            <img
-              src="src/assets/logo_pokemon-removebg-preview.png"
-              className="pkimage"
-              alt="logo pokemon"
-            />
-            <div
-              className={`nav-menu-wrapper ${
-                isMenuOpen ? "visible" : "hidden"
-              }`}
-            >
-              <ul className="ulclass">
-                {navItems.map((item) => (
-                  <li key={item.path} onClick={handleMenuToggle}>
-                    <NavLink
-                      to={item.path}
-                      className={({ isActive }) =>
-                        `menu-nav-link ${isActive ? "active" : ""}`
-                      }
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Toolbar>
-        </AppBar>
+    <AppBar
+      position="sticky"
+      sx={{
+        background: "linear-gradient(90deg, #1A73E8 0%, #0D47A1 100%)",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+        py: 0.5,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Toolbar sx={{ justifyContent: "space-between", height: "80px" }}>
+          <img
+            src="src/assets/patitasfelicesletra.png"
+            alt="Logo"
+            className="nav-logo"
+          />
+
+          {/* Desktop Menu */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </Box>
+
+          {/* Mobile Toggle */}
+          <IconButton
+            sx={{ display: { xs: "flex", md: "none" } }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </Container>
+
+      {/* Mobile Drawer (Simplificado) */}
+      <Box className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {item.label}
+          </NavLink>
+        ))}
       </Box>
-
-      <div className="nav-container">
-        <img
-          src="src/assets/logo_pokemon-removebg-preview.png"
-          className="pkimage"
-          alt="logo pokemon"
-        />
-
-        <li className="nav-link">
-          <Link to="Index">INICIO</Link>{" "}
-        </li>
-        <li className="nav-link">
-          {" "}
-          <Link to="ListaPokes">POKEMONS</Link>{" "}
-        </li>
-        <li className="nav-link">
-          {" "}
-          <Link to="Favoritos">FAVORITOS</Link>{" "}
-        </li>
-      </div>
-    </>
+    </AppBar>
   );
 }
+
 export default NavBar;

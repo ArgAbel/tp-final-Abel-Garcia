@@ -1,6 +1,5 @@
 import "./Subindex.css";
-import { Button, Paper, Typography} from '@mui/material';
-import { CatchingPokemon } from "@mui/icons-material";
+import { Paper, Typography} from '@mui/material';
 import WelcomeCard from '../../boxmensajes/boxs';
 function Index() {
   return (
