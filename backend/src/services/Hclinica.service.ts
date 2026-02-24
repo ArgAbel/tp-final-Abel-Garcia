@@ -1,6 +1,5 @@
-import * as HistoriaClinica from '../models/HistoriaClinica.model';
-import { Hclinico } from '../models/HistoriaClinica.model';
-
+import * as HistoriaClinica from "../models/HistoriaClinica.model";
+import { Hclinico } from "../models/HistoriaClinica.model";
 
 export const listHclinica = async (): Promise<Hclinico[]> => {
   return HistoriaClinica.getAllHclinicos();
@@ -11,11 +10,16 @@ export const CreateNewHclinica = async (data: Hclinico): Promise<Hclinico> => {
   return { ...data, id };
 };
 
-export const listHclinicaById = async (id: number): Promise<Hclinico | null> => {
+export const listHclinicaById = async (
+  id: number,
+): Promise<Hclinico | null> => {
   return HistoriaClinica.getHclinicoById(id);
 };
 
-export const UpdateHclinica = async (id: number, data: Partial<Hclinico>): Promise<Hclinico[]> => {
+export const UpdateHclinica = async (
+  id: number,
+  data: Partial<Hclinico>,
+): Promise<Hclinico[]> => {
   await HistoriaClinica.updateHclinico(id, data);
   return HistoriaClinica.getAllHclinicos();
 };

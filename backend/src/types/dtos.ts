@@ -1,8 +1,8 @@
 export interface UsuarioData {
- username: string;
+  username: string;
   email: string;
   password: string;
-  role: 'user'
+  role: "user";
 }
 
 export interface MascotaData {
@@ -13,7 +13,7 @@ export interface MascotaData {
 }
 
 export interface DuenoData {
-   name: string;
+  name: string;
   lastname: string;
   adress: string;
   phone: string;

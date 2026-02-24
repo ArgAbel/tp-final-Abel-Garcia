@@ -1,14 +1,14 @@
-//carga automatica de los permisos en memoria al iniciar el servidor, 
+//carga automatica de los permisos en memoria al iniciar el servidor,
 // para evitar consultas a la base de datos en cada autorización
 //atraves de guarda en cache los permisos
 
 export let rolePermissionsMap: Record<string, string[]> = {};
 
 export const setPermissionsMap = (data: Record<string, string[]>) => {
-  rolePermissionsMap = data;};
+  rolePermissionsMap = data;
+};
 
-  import pool  from './database'; 
-
+import pool from "./database";
 
 export const loadPermissions = async () => {
   try {
@@ -32,9 +32,9 @@ export const loadPermissions = async () => {
     });
 
     setPermissionsMap(map);
-    console.log('✅ Mapa de permisos cargado');
+    console.log("✅ Mapa de permisos cargado");
     console.log(map);
   } catch (error) {
-    console.error('❌ Error al cargar permisos:', error);
+    console.error("❌ Error al cargar permisos:", error);
   }
 };
