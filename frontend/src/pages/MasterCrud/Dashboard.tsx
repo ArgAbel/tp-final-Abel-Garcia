@@ -287,7 +287,7 @@ export const Dashboard: React.FC = () => {
   const triggerAuthError = () => {
     setAuthError({
       open: true,
-      message: 'Tu sesión ha expirado o no tienes permisos para realizar esta acción.'
+      message: 'Faltan permisos para acceder a este contenido.'
     });
   };
 
@@ -331,7 +331,7 @@ export const Dashboard: React.FC = () => {
           />
         </Container>
 
-        {/* El Snackbar se queda aquí para ser global */}
+        {/* Snackbar para mostrar errores de autorización */}
         <Snackbar open={authError.open} autoHideDuration={6000} onClose={() => setAuthError({ open: false, message: '' })}>
           <Alert severity="error" variant="filled">{authError.message}</Alert>
         </Snackbar>
